@@ -1,0 +1,65 @@
+{%extends 'navbar.html'%}
+{% load static%}
+{%block one%}
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Card Layout with CSS Grid</title>
+    <link rel="stylesheet" href="{% static 'css/prostyle.css'%}" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+{%endblock one%}
+{%block middle%}
+<div class=" h-100 " style="width:70px;"></div>
+{%endblock middle%}
+{%block second%}
+
+<div class="text-center">
+  <br>
+  <h1 class="font-weight-bolder  text-warning  display-2">
+    Property List
+    
+  </h1> <br>
+                    <h3 class=" font-weight-bolder  text-info  font-italic ">
+                        Uploaded Property List
+                    </h3>
+                    <br>
+                    <br>
+</div>
+<div class="row container mx-auto  " 
+<main>
+      <section class="cards" style="background-color: white;">
+      
+        {%for i in Property%}
+        <div class="card  border rounded border-light shadow bg-dark">
+          <div class="card__image-container">
+            <img src="{{i.img.url}}"
+            />
+          </div>
+          <div class="card__content">
+            <p class="card__title text--medium text-danger ">
+            {{i.district}}
+            
+            </p>
+            <div class="card__info">
+              <p class="text--medium font-weight-bold">{{i.place}} </p>
+               
+            </div>
+            <div class="card__info">
+                <p class="text--medium font-weight-bold">{{i.cent}} Cent </p>
+                 
+              </div>
+          </div>
+
+        </div>
+        {%endfor%}
+       
+      
+      </section>
+    </main>
+  </div>
+  
+{%endblock second%}

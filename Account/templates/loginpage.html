@@ -1,0 +1,22 @@
+{%extends 'index.html'%}
+{%block content%}
+
+
+    <div class="title">
+       Login Form
+    </div>
+    <form action="" method="post" id="log">
+        {%csrf_token%}
+        {{form}}
+      
+       <div class="field">
+          <input type="submit" value="Login">
+       </div>
+      
+       <div class="signup-link">
+          Not a member? <a href="{%url 'reg'%}">Signup now</a>
+       </div>
+    </form>
+
+
+ {%endblock content%}

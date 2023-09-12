@@ -1,0 +1,49 @@
+
+
+
+
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - a better ol (numbered list with circle outline)</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="{%static 'css/brokers.css'%}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+   
+
+</head>
+<body style="background-color: rgb(255, 254, 254);">
+<!-- partial:index.partial.html -->
+<div class="same">
+    <strong id="head">List of Property request</strong>
+   <div class="btns">
+        <!-- <button class="btn">Search</button> -->
+        <a href="{%url 'adhome'%}" class="abtn"><span class="material-symbols-outlined " style="margin-top: 2px;">
+            home
+            </span> Back to Home</a>
+   </div>
+    
+</div>
+<ol class="alternating-colors">
+    {%for i in order %}
+    
+    <li class="text-capitalize">
+        <strong style="text-transform:capitalize; ">{{i.user.first_name}} {{i.user.last_name}} </strong>
+        <p style="text-transform:capitalize; "><span style="color: brown;">Property ID </span>: {{i.propery.id}}</p>
+        <p style="text-transform:capitalize;"><span style="color: brown;">district : </span>{{i.propery.district}}</p>
+        <p style="text-transform:capitalize;"><span style="color: brown;">place : </span>{{i.propery.place}}</p>
+
+        <p style="text-transform:capitalize;"><span style="color: brown;">phone :</span> {{i.phone}}</p>
+        <p style="text-transform:capitalize;"><span style="color: brown;">date :</span> {{i.date}}</p>
+       <p style="margin-top: 24px;"> <a href="{% url 'delrequest' i.id %}" class="btn">Remove</a></p>
+    </li>
+    {%endfor%}
+ 
+</ol>
+<!-- partial -->
+  
+</body>
+</html>

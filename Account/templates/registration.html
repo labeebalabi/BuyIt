@@ -1,0 +1,25 @@
+{%extends 'index.html'%}
+{%block content%}
+
+    <div class="title">
+       Registration Form
+    </div>
+    <form action="#" method="post" id="reg" class="">
+        {%csrf_token%}
+        <table class="table my-5 cust" style="border-collapse: collapse;">
+            
+            {{form.as_table}}
+          
+        </table>
+       <div class="field">
+          <input type="submit" value="Login">
+       </div>
+      
+       <div class="signup-link">
+          Already a member? <a href="{%url 'log'%}">Signin now</a>
+       </div>
+    </form>
+ 
+
+
+{%endblock content%}

@@ -1,0 +1,116 @@
+{%load static%}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://use.fontawesome.com/3903c9d7fd.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
+    <title>3D Navbar</title>
+    {%block one%}
+    {%endblock one%}
+    
+    <style>
+        ul.menu {
+            display: inline-block;
+            list-style-type: none;
+            position: fixed;
+        }
+
+        li.menu_list {
+            height: 85px;
+            width: 85px;
+            position: relative;
+        }
+
+        li.menu_list .front,
+        a.side {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 86px;
+            width: 100%;
+            padding: 30px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all .5s ease-out;
+            cursor: pointer;
+        }
+
+        li.menu_list .front {
+            background-color: #34465d;
+            color: #FFFC00;
+            transform-origin: 0 0;
+        }
+
+        a.side {
+            background-color: #FFFC00;
+            color: #34465d;
+            transform-origin: 0 0 85px;
+            transform: rotateY(-90deg);
+        }
+
+        li.menu_list:hover a.side {
+            transform: rotateY(0deg);
+        }
+
+        li.menu_list:hover .front {
+            transform: rotateY(90deg);
+        }
+    </style>
+</head>
+
+<body style="background-color: rgb(28, 6, 56);">
+    <div class="row">
+        {%block middle%}
+        {%endblock middle%}
+
+        <div class="col-1  ">
+            <ul class="menu">
+                <li class="menu_list">
+                    <span class="front fas fa-home " style="font-size: 21px;"></span>
+                    <a href="{%url 'Bhome'%}" class="side">home</a>
+                </li>
+                <li class="menu_list">
+                    <span class="front"><span class="material-symbols-outlined">
+                        favorite
+                        </span></span>
+                    <a href="{%url 'wish'%}" class="side">Wishlist</a>
+                </li>
+                <li class="menu_list">
+                    <span class="front ">
+                        <span class="material-symbols-outlined">
+                            real_estate_agent
+                            </span>
+                    </span>
+                    <a href="{%url 'property'%}" class="side">Property List </a>
+                </li>
+                <li class="menu_list">
+                    <span class="front "><span class="material-symbols-outlined " style="font-size: 29px;">
+                        person_search
+                        </span></span>
+                    <a href="{%url 'brokers'%}" class="side"> Dealer</a>
+                </li>
+                <li class="menu_list">
+                    <span class="front "><span class="material-symbols-outlined " style="font-size: 29px;">
+                        logout
+                        </span></span>
+                    <a href="{%url 'ulogout'%}" class="side"> Logout</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-9">
+            {%block second%}
+            {%endblock second%}
+
+        </div>
+    </div>
+   
+</body>
+
+</html>
